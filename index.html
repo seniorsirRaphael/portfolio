@@ -5,80 +5,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SeniorSirRaphael - Empowering Kenyans Digitally</title>
     <meta name="description" content="Mwendwa Raphael - Applied Computer Science Student offering digital services including content sales, government services, academic help, and tech solutions.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Responsive Typography System - Device Based Font Sizes */
+        :root {
+            /* Base font sizes for different devices */
+            --font-base-xs: 14px;    /* Mobile phones (0-576px) */
+            --font-base-sm: 15px;    /* Small tablets (576px-768px) */
+            --font-base-md: 16px;    /* Tablets (768px-992px) */
+            --font-base-lg: 17px;    /* Desktops (992px-1200px) */
+            --font-base-xl: 18px;    /* Large screens (1200px+) */
+        }
+        
+        /* Base responsive font sizing - Mobile First */
+        html {
+            font-size: var(--font-base-xs);
+        }
+        
+        /* Small devices (landscape phones, 576px and up) */
+        @media (min-width: 576px) { 
+            html { font-size: var(--font-base-sm); }
+        }
+        
+        /* Medium devices (tablets, 768px and up) */
+        @media (min-width: 768px) { 
+            html { font-size: var(--font-base-md); }
+        }
+        
+        /* Large devices (desktops, 992px and up) */
+        @media (min-width: 992px) { 
+            html { font-size: var(--font-base-lg); }
+        }
+        
+        /* X-Large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) { 
+            html { font-size: var(--font-base-xl); }
+        }
+        
+        /* Fluid Typography using clamp() */
+        h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 3rem);
+            line-height: 1.3;
+        }
+        
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            line-height: 1.4;
+        }
+        
+        .hero-title {
+            font-size: clamp(1.8rem, 6vw, 3.5rem);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+        }
+        
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+        
+        .service-card h3 {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        }
+        
+        .testimonial-card p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+        
+        /* Mobile-specific adjustments */
+        @media (max-width: 576px) {
+            .mobile-font-sm {
+                font-size: 0.9em;
+            }
+            
+            .mobile-font-xs {
+                font-size: 0.8em;
+            }
+            
+            .hero-description {
+                font-size: 0.95em;
+            }
+        }
+        
+        /* Tablet-specific adjustments */
+        @media (min-width: 577px) and (max-width: 768px) {
+            .tablet-font-md {
+                font-size: 1em;
+            }
+        }
+        
+        /* Desktop-specific adjustments */
+        @media (min-width: 992px) {
+            body {
+                line-height: 1.8;
+            }
+            
+            .service-card p {
+                font-size: 1em;
+            }
+        }
+        
+        /* Print-specific font sizes */
+        @media print {
+            html {
+                font-size: 12pt;
+            }
+            
+            h1 {
+                font-size: 24pt;
+            }
+            
+            h2 {
+                font-size: 18pt;
+            }
+            
+            p {
+                font-size: 11pt;
+                line-height: 1.5;
+            }
+        }
+    </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNav">
+        <div class="container">
             <div class="nav-brand">
                 <i class="fas fa-user-graduate nav-icon"></i>
-                <span class="brand-text">SeniorSirRaphael</span>
+                <span class="brand-text fw-bold">SeniorSirRaphael</span>
             </div>
             
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About Me</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#portfolio" class="nav-link">Portfolio</a>
-                <a href="#testimonials" class="nav-link">Testimonials</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            
-            <div class="nav-contact">
-                <a href="tel:+254757319350" class="contact-btn">
-                    <i class="fas fa-phone"></i>
-                    Call Me
-                </a>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" href="#home">Home</a>
+                    <a class="nav-link" href="#about">About Me</a>
+                    <a class="nav-link" href="#services">Services</a>
+                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </div>
+                
+                <div class="nav-contact ms-lg-3 mt-3 mt-lg-0">
+                    <a href="tel:+254757319350" class="btn btn-primary">
+                        <i class="fas fa-phone"></i>
+                        Call Me
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-image">
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user-circle"></i>
+    <section class="hero py-5" id="home">
+        <div class="container py-5 mt-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="hero-content">
+                        <div class="hero-image mb-4 d-lg-none">
+                            <div class="profile-placeholder">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                        </div>
+                        
+                        <h1 class="hero-title mb-3">
+                            <span class="name-text">Mwendwa Raphael</span><br>
+                            <span class="gradient-text">Empowering Kenyans Digitally</span>
+                        </h1>
+                        
+                        <p class="hero-subtitle mb-3">Applied Computer Science Student at Egerton University</p>
+                        
+                        <p class="hero-description mb-4">
+                            Providing comprehensive digital services to help individuals and businesses 
+                            thrive in the digital age. From government services to tech solutions, 
+                            I'm here to make your digital journey seamless.
+                        </p>
+                        
+                        <div class="hero-buttons mb-5">
+                            <a href="#services" class="btn btn-primary me-3">
+                                View Services
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                        </div>
+                        
+                        <div class="hero-contact">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="contact-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Maungu, Taita Taveta, Kenya</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="contact-item">
+                                        <i class="fas fa-phone"></i>
+                                        <span>+254 757 319 350</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="contact-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>siraphaelmwendwa@gmail.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <h1 class="hero-title">
-                    <span class="name-text">Mwendwa Raphael</span><br>
-                    <span class="gradient-text">Empowering Kenyans Digitally</span>
-                </h1>
-                <p class="hero-subtitle">Applied Computer Science Student at Egerton University</p>
-                <p class="hero-description">
-                    Providing comprehensive digital services to help individuals and businesses 
-                    thrive in the digital age. From government services to tech solutions, 
-                    I'm here to make your digital journey seamless.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">
-                        View Services
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
                 </div>
                 
-                <div class="hero-contact">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Maungu, Taita Taveta, Kenya</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+254 757 319 350</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>siraphaelmwendwa@gmail.com</span>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="hero-image text-center">
+                        <div class="profile-placeholder">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,42 +247,48 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About <span class="accent-text">Me</span></h2>
+    <section class="about py-5" id="about">
+        <div class="container py-5">
+            <div class="section-header text-center mb-5">
+                <h2 class="mb-3">About <span class="accent-text">Me</span></h2>
                 <p>My journey in digital empowerment</p>
             </div>
             
             <div class="about-content">
-                <div class="about-text">
-                    <div class="about-card">
-                        <h3>My Mission</h3>
-                        <p>
-                            As an Applied Computer Science student at Egerton University, I'm passionate about 
-                            bridging the digital divide in Kenya. My mission is to empower individuals and 
-                            businesses with the digital tools and knowledge they need to succeed in today's 
-                            technology-driven world.
-                        </p>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="about-card">
+                            <h3 class="mb-3">My Mission</h3>
+                            <p>
+                                As an Applied Computer Science student at Egerton University, I'm passionate about 
+                                bridging the digital divide in Kenya. My mission is to empower individuals and 
+                                businesses with the digital tools and knowledge they need to succeed in today's 
+                                technology-driven world.
+                            </p>
+                        </div>
                     </div>
                     
-                    <div class="about-card">
-                        <h3>My Story</h3>
-                        <p>
-                            Growing up in Maungu, Taita Taveta, I witnessed firsthand the challenges many 
-                            Kenyans face in accessing digital services. This inspired me to dedicate my 
-                            skills to helping others navigate government services, academic processes, 
-                            and business opportunities online.
-                        </p>
+                    <div class="col-md-4">
+                        <div class="about-card">
+                            <h3 class="mb-3">My Story</h3>
+                            <p>
+                                Growing up in Maungu, Taita Taveta, I witnessed firsthand the challenges many 
+                                Kenyans face in accessing digital services. This inspired me to dedicate my 
+                                skills to helping others navigate government services, academic processes, 
+                                and business opportunities online.
+                            </p>
+                        </div>
                     </div>
                     
-                    <div class="about-card">
-                        <h3>My Vision</h3>
-                        <p>
-                            I envision a Kenya where every citizen can confidently access digital 
-                            services, from government applications to online business opportunities. 
-                            Through my services, I aim to make digital literacy accessible to all.
-                        </p>
+                    <div class="col-md-4">
+                        <div class="about-card">
+                            <h3 class="mb-3">My Vision</h3>
+                            <p>
+                                I envision a Kenya where every citizen can confidently access digital 
+                                services, from government applications to online business opportunities. 
+                                Through my services, I aim to make digital literacy accessible to all.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,197 +296,235 @@
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>My <span class="accent-text">Services</span></h2>
+    <section class="services py-5" id="services">
+        <div class="container py-5">
+            <div class="section-header text-center mb-5">
+                <h2 class="mb-3">My <span class="accent-text">Services</span></h2>
                 <p>Comprehensive digital solutions for your needs</p>
             </div>
             
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-music"></i>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h3>Digital Content Sales</h3>
+                            <p>Songs, movies, series, DJ mixes, ringtones and other digital entertainment content at affordable prices.</p>
+                            <ul class="service-features">
+                                <li>Latest music releases</li>
+                                <li>Movies & series</li>
+                                <li>Custom ringtones</li>
+                                <li>DJ mixes</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Digital Content Sales</h3>
-                    <p>Songs, movies, series, DJ mixes, ringtones and other digital entertainment content at affordable prices.</p>
-                    <ul class="service-features">
-                        <li>Latest music releases</li>
-                        <li>Movies & series</li>
-                        <li>Custom ringtones</li>
-                        <li>DJ mixes</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>Government Services</h3>
+                            <p>Assistance with KRA PIN applications, tax returns, NHIF/NSSF registration, CRB checks, and police clearance.</p>
+                            <ul class="service-features">
+                                <li>KRA PIN registration</li>
+                                <li>Tax returns filing</li>
+                                <li>NHIF/NSSF applications</li>
+                                <li>CRB & police clearance</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Government Services</h3>
-                    <p>Assistance with KRA PIN applications, tax returns, NHIF/NSSF registration, CRB checks, and police clearance.</p>
-                    <ul class="service-features">
-                        <li>KRA PIN registration</li>
-                        <li>Tax returns filing</li>
-                        <li>NHIF/NSSF applications</li>
-                        <li>CRB & police clearance</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Education Support</h3>
+                            <p>HELB assistance, KUCCPS applications, course advice, and student portal navigation help.</p>
+                            <ul class="service-features">
+                                <li>HELB loan applications</li>
+                                <li>KUCCPS placement</li>
+                                <li>Course selection advice</li>
+                                <li>Student portal assistance</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Education Support</h3>
-                    <p>HELB assistance, KUCCPS applications, course advice, and student portal navigation help.</p>
-                    <ul class="service-features">
-                        <li>HELB loan applications</li>
-                        <li>KUCCPS placement</li>
-                        <li>Course selection advice</li>
-                        <li>Student portal assistance</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-book"></i>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Academic Help</h3>
+                            <p>Assignment assistance, project help, editing services, and plagiarism checks for students.</p>
+                            <ul class="service-features">
+                                <li>Assignment writing</li>
+                                <li>Project development</li>
+                                <li>Document editing</li>
+                                <li>Plagiarism checking</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Academic Help</h3>
-                    <p>Assignment assistance, project help, editing services, and plagiarism checks for students.</p>
-                    <ul class="service-features">
-                        <li>Assignment writing</li>
-                        <li>Project development</li>
-                        <li>Document editing</li>
-                        <li>Plagiarism checking</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Career Services</h3>
+                            <p>Professional CV writing, job application assistance, and LinkedIn profile optimization.</p>
+                            <ul class="service-features">
+                                <li>CV/Resume writing</li>
+                                <li>Cover letters</li>
+                                <li>LinkedIn optimization</li>
+                                <li>Job application guidance</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Career Services</h3>
-                    <p>Professional CV writing, job application assistance, and LinkedIn profile optimization.</p>
-                    <ul class="service-features">
-                        <li>CV/Resume writing</li>
-                        <li>Cover letters</li>
-                        <li>LinkedIn optimization</li>
-                        <li>Job application guidance</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Tech Services</h3>
+                            <p>Website design and development, domain registration, and web hosting solutions.</p>
+                            <ul class="service-features">
+                                <li>Website development</li>
+                                <li>Domain registration</li>
+                                <li>Web hosting setup</li>
+                                <li>Technical support</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Tech Services</h3>
-                    <p>Website design and development, domain registration, and web hosting solutions.</p>
-                    <ul class="service-features">
-                        <li>Website development</li>
-                        <li>Domain registration</li>
-                        <li>Web hosting setup</li>
-                        <li>Technical support</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <h3>Digital Marketing</h3>
+                            <p>WhatsApp Business setup, YouTube channel optimization, and social media branding services.</p>
+                            <ul class="service-features">
+                                <li>WhatsApp Business setup</li>
+                                <li>YouTube channel help</li>
+                                <li>Social media branding</li>
+                                <li>Content strategy</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Digital Marketing</h3>
-                    <p>WhatsApp Business setup, YouTube channel optimization, and social media branding services.</p>
-                    <ul class="service-features">
-                        <li>WhatsApp Business setup</li>
-                        <li>YouTube channel help</li>
-                        <li>Social media branding</li>
-                        <li>Content strategy</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Affiliate Marketing</h3>
+                            <p>Promoting quality programs including Hostinger, Jumia, BF Suma, PesaCrash, and more.</p>
+                            <ul class="service-features">
+                                <li>Hostinger hosting</li>
+                                <li>Jumia partnerships</li>
+                                <li>BF Suma products</li>
+                                <li>PesaCrash opportunities</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Affiliate Marketing</h3>
-                    <p>Promoting quality programs including Hostinger, Jumia, BF Suma, PesaCrash, and more.</p>
-                    <ul class="service-features">
-                        <li>Hostinger hosting</li>
-                        <li>Jumia partnerships</li>
-                        <li>BF Suma products</li>
-                        <li>PesaCrash opportunities</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3>Training & Mentorship</h3>
+                            <p>Digital skills training, e-business guidance, and personal mentorship for career growth.</p>
+                            <ul class="service-features">
+                                <li>Digital skills training</li>
+                                <li>E-business setup</li>
+                                <li>Career mentorship</li>
+                                <li>Skill development</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Training & Mentorship</h3>
-                    <p>Digital skills training, e-business guidance, and personal mentorship for career growth.</p>
-                    <ul class="service-features">
-                        <li>Digital skills training</li>
-                        <li>E-business setup</li>
-                        <li>Career mentorship</li>
-                        <li>Skill development</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3>Graphic Design</h3>
+                            <p>Professional posters, banners, business cards, certificates, and photo editing services.</p>
+                            <ul class="service-features">
+                                <li>Poster design</li>
+                                <li>Business cards</li>
+                                <li>Certificates</li>
+                                <li>Photo editing</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Graphic Design</h3>
-                    <p>Professional posters, banners, business cards, certificates, and photo editing services.</p>
-                    <ul class="service-features">
-                        <li>Poster design</li>
-                        <li>Business cards</li>
-                        <li>Certificates</li>
-                        <li>Photo editing</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2>My <span class="accent-text">Portfolio</span></h2>
+    <section class="portfolio py-5" id="portfolio">
+        <div class="container py-5">
+            <div class="section-header text-center mb-5">
+                <h2 class="mb-3">My <span class="accent-text">Portfolio</span></h2>
                 <p>Explore my work and projects</p>
             </div>
             
             <div class="portfolio-content">
-                <div class="portfolio-card">
-                    <div class="portfolio-icon">
-                        <i class="fab fa-github"></i>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="portfolio-card">
+                            <div class="portfolio-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <h3>GitHub Portfolio</h3>
+                            <p>
+                                Visit my comprehensive GitHub portfolio to see my coding projects, 
+                                contributions, and technical skills in action.
+                            </p>
+                            <a href="https://seniorsirraphael.github.io/firstproject/" target="_blank" class="btn btn-primary">
+                                View Portfolio
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3>GitHub Portfolio</h3>
-                    <p>
-                        Visit my comprehensive GitHub portfolio to see my coding projects, 
-                        contributions, and technical skills in action.
-                    </p>
-                    <a href="https://seniorsirraphael.github.io/firstproject/" target="_blank" class="btn btn-primary">
-                        View Portfolio
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-                
-                <div class="portfolio-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Happy Clients</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">1000+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Websites Built</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Support Available</div>
+                    
+                    <div class="col-lg-6">
+                        <div class="portfolio-stats">
+                            <div class="row g-4">
+                                <div class="col-6">
+                                    <div class="stat-item">
+                                        <div class="stat-number">500+</div>
+                                        <div class="stat-label">Happy Clients</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="stat-item">
+                                        <div class="stat-number">1000+</div>
+                                        <div class="stat-label">Projects Completed</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="stat-item">
+                                        <div class="stat-number">50+</div>
+                                        <div class="stat-label">Websites Built</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="stat-item">
+                                        <div class="stat-number">24/7</div>
+                                        <div class="stat-label">Support Available</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -327,73 +532,81 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Client <span class="accent-text">Testimonials</span></h2>
+    <section class="testimonials py-5" id="testimonials">
+        <div class="container py-5">
+            <div class="section-header text-center mb-5">
+                <h2 class="mb-3">Client <span class="accent-text">Testimonials</span></h2>
                 <p>What my clients say about my services</p>
             </div>
             
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>
-                        "Raphael helped me with my HELB application when I was completely lost. 
-                        His guidance was invaluable and I got my loan approved quickly. 
-                        Highly recommend his education support services!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Sarah Wanjiku</h4>
-                            <span>University Student</span>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>
+                                "Raphael helped me with my HELB application when I was completely lost. 
+                                His guidance was invaluable and I got my loan approved quickly. 
+                                Highly recommend his education support services!"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Sarah Wanjiku</h4>
+                                    <span>University Student</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>
-                        "I needed help with my KRA PIN and tax returns. Raphael made the 
-                        entire process smooth and stress-free. His knowledge of government 
-                        services is exceptional. Thank you!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>James Mwangi</h4>
-                            <span>Small Business Owner</span>
+                    
+                    <div class="col-lg-4">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>
+                                "I needed help with my KRA PIN and tax returns. Raphael made the 
+                                entire process smooth and stress-free. His knowledge of government 
+                                services is exceptional. Thank you!"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>James Mwangi</h4>
+                                    <span>Small Business Owner</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>
-                        "Raphael designed a beautiful website for my business and helped 
-                        set up my WhatsApp Business. The results have been amazing! 
-                        Professional service at an affordable price."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Grace Mutinda</h4>
-                            <span>Entrepreneur</span>
+                    
+                    <div class="col-lg-4">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>
+                                "Raphael designed a beautiful website for my business and helped 
+                                set up my WhatsApp Business. The results have been amazing! 
+                                Professional service at an affordable price."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Grace Mutinda</h4>
+                                    <span>Entrepreneur</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -402,166 +615,214 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In <span class="accent-text">Touch</span></h2>
+    <section class="contact py-5" id="contact">
+        <div class="container py-5">
+            <div class="section-header text-center mb-5">
+                <h2 class="mb-3">Get In <span class="accent-text">Touch</span></h2>
                 <p>Ready to start your digital journey? Let's connect!</p>
             </div>
             
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                <div class="row">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="contact-info">
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-12">
+                                    <div class="contact-card">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                        <h3>Call Me</h3>
+                                        <p>Available 24/7 for urgent matters</p>
+                                        <a href="tel:+254757319350" class="contact-link">+254 757 319 350</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-12">
+                                    <div class="contact-card">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <h3>Email Me</h3>
+                                        <p>Get a response within 2 hours</p>
+                                        <a href="mailto:siraphaelmwendwa@gmail.com" class="contact-link">siraphaelmwendwa@gmail.com</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-12">
+                                    <div class="contact-card">
+                                        <div class="contact-icon">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </div>
+                                        <h3>WhatsApp</h3>
+                                        <p>Quick chat and file sharing</p>
+                                        <a href="https://wa.me/254757319350" target="_blank" class="contact-link">Chat on WhatsApp</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-12">
+                                    <div class="contact-card">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <h3>Location</h3>
+                                        <p>Serving clients nationwide</p>
+                                        <span class="contact-link">Maungu, Taita Taveta, Kenya</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Call Me</h3>
-                        <p>Available 24/7 for urgent matters</p>
-                        <a href="tel:+254757319350" class="contact-link">+254 757 319 350</a>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <div class="col-lg-8">
+                        <div class="contact-form-container">
+                            <form class="contact-form" id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Full Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email Address</label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="service">Service Needed</label>
+                                            <select class="form-select" id="service" name="service" required>
+                                                <option value="">Select a service</option>
+                                                <option value="digital-content">Digital Content Sales</option>
+                                                <option value="government">Government Services</option>
+                                                <option value="education">Education Support</option>
+                                                <option value="academic">Academic Help</option>
+                                                <option value="career">Career Services</option>
+                                                <option value="tech">Tech Services</option>
+                                                <option value="marketing">Digital Marketing</option>
+                                                <option value="affiliate">Affiliate Marketing</option>
+                                                <option value="training">Training & Mentorship</option>
+                                                <option value="design">Graphic Design</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="message">Message</label>
+                                            <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Tell me about your project or needs..."></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-full w-100">
+                                            Send Message
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <h3>Email Me</h3>
-                        <p>Get a response within 2 hours</p>
-                        <a href="mailto:siraphaelmwendwa@gmail.com" class="contact-link">siraphaelmwendwa@gmail.com</a>
                     </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3>WhatsApp</h3>
-                        <p>Quick chat and file sharing</p>
-                        <a href="https://wa.me/254757319350" target="_blank" class="contact-link">Chat on WhatsApp</a>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3>Location</h3>
-                        <p>Serving clients nationwide</p>
-                        <span class="contact-link">Maungu, Taita Taveta, Kenya</span>
-                    </div>
-                </div>
-                
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Needed</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a service</option>
-                                <option value="digital-content">Digital Content Sales</option>
-                                <option value="government">Government Services</option>
-                                <option value="education">Education Support</option>
-                                <option value="academic">Academic Help</option>
-                                <option value="career">Career Services</option>
-                                <option value="tech">Tech Services</option>
-                                <option value="marketing">Digital Marketing</option>
-                                <option value="affiliate">Affiliate Marketing</option>
-                                <option value="training">Training & Mentorship</option>
-                                <option value="design">Graphic Design</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or needs..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-full">
-                            Send Message
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
+    <footer class="footer py-5">
+        <div class="container py-4">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="nav-brand">
-                        <i class="fas fa-user-graduate nav-icon"></i>
-                        <span class="brand-text">SeniorSirRaphael</span>
-                    </div>
-                    <p>
-                        Empowering Kenyans Digitally through comprehensive digital services, 
-                        education support, and technology solutions. Your success is my mission.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://wa.me/254757319350" target="_blank" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://seniorsirraphael.github.io/firstproject/" target="_blank" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="mailto:siraphaelmwendwa@gmail.com" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="tel:+254757319350" aria-label="Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About Me</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
+                <div class="row">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="footer-brand">
+                            <div class="nav-brand mb-3">
+                                <i class="fas fa-user-graduate nav-icon"></i>
+                                <span class="brand-text fw-bold">SeniorSirRaphael</span>
+                            </div>
+                            <p class="mb-4">
+                                Empowering Kenyans Digitally through comprehensive digital services, 
+                                education support, and technology solutions. Your success is my mission.
+                            </p>
+                            <div class="social-links">
+                                <a href="https://wa.me/254757319350" target="_blank" class="social-link" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="https://seniorsirraphael.github.io/firstproject/" target="_blank" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="mailto:siraphaelmwendwa@gmail.com" class="social-link" aria-label="Email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="tel:+254757319350" class="social-link" aria-label="Phone">
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="link-group">
-                        <h3>Popular Services</h3>
-                        <ul>
-                            <li><a href="#services">Government Services</a></li>
-                            <li><a href="#services">Education Support</a></li>
-                            <li><a href="#services">Tech Services</a></li>
-                            <li><a href="#services">Digital Marketing</a></li>
-                            <li><a href="#services">Graphic Design</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h3>Contact Info</h3>
-                        <ul>
-                            <li><i class="fas fa-phone"></i> +254 757 319 350</li>
-                            <li><i class="fas fa-envelope"></i> siraphaelmwendwa@gmail.com</li>
-                            <li><i class="fas fa-map-marker-alt"></i> Maungu, Taita Taveta</li>
-                        </ul>
+                    <div class="col-lg-8">
+                        <div class="footer-links">
+                            <div class="row">
+                                <div class="col-md-4 mb-4 mb-md-0">
+                                    <div class="link-group">
+                                        <h3>Quick Links</h3>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#home">Home</a></li>
+                                            <li><a href="#about">About Me</a></li>
+                                            <li><a href="#services">Services</a></li>
+                                            <li><a href="#portfolio">Portfolio</a></li>
+                                            <li><a href="#contact">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 mb-4 mb-md-0">
+                                    <div class="link-group">
+                                        <h3>Popular Services</h3>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#services">Government Services</a></li>
+                                            <li><a href="#services">Education Support</a></li>
+                                            <li><a href="#services">Tech Services</a></li>
+                                            <li><a href="#services">Digital Marketing</a></li>
+                                            <li><a href="#services">Graphic Design</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="link-group">
+                                        <h3>Contact Info</h3>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-phone"></i> +254 757 319 350</li>
+                                            <li><i class="fas fa-envelope"></i> siraphaelmwendwa@gmail.com</li>
+                                            <li><i class="fas fa-map-marker-alt"></i> Maungu, Taita Taveta</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2025 SeniorSirRaphael. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                    <a href="#contact">Contact</a>
+            <div class="footer-bottom mt-5 pt-4 border-top">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2025 SeniorSirRaphael. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-bottom-links">
+                            <a href="#privacy">Privacy Policy</a>
+                            <a href="#terms">Terms of Service</a>
+                            <a href="#contact">Contact</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -575,6 +836,10 @@
         </div>
     </div>
 
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Your Custom Script -->
     <script src="script.js"></script>
 </body>
 </html>
